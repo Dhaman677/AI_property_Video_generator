@@ -1,0 +1,58 @@
+[
+  {
+    "kind": "title",
+    "headline": "Sunrise Heights - 2 BHK Apartment",
+    "caption": "2 BHK apartment  •  Baner, Pune",
+    "narration": "Introducing Sunrise Heights - 2 BHK Apartment, located in Baner, Pune.",
+    "image_index": 0
+  },
+  {
+    "kind": "feature",
+    "headline": "Bright living room with large windows",
+    "caption": "Feature highlight",
+    "narration": "Key feature: Bright living room with large windows.",
+    "image_index": 1
+  },
+  {
+    "kind": "feature",
+    "headline": "Modular kitchen with chimney",
+    "caption": "",
+    "narration": "Also included: Modular kitchen with chimney.",
+    "image_index": 2
+  },
+  {
+    "kind": "feature",
+    "headline": "Master bedroom with attached bath",
+    "caption": "",
+    "narration": "Plus: Master bedroom with attached bath.",
+    "image_index": 3
+  },
+  {
+    "kind": "feature",
+    "headline": "Private balcony with garden view",
+    "caption": "",
+    "narration": "And: Private balcony with garden view.",
+    "image_index": 4
+  },
+  {
+    "kind": "feature",
+    "headline": "Swimming pool and clubhouse",
+    "caption": "",
+    "narration": "Finally: Swimming pool and clubhouse.",
+    "image_index": 5
+  },
+  {
+    "kind": "price",
+    "headline": "₹85 Lakhs",
+    "caption": "Priced at",
+    "narration": "Priced at ₹85 Lakhs.",
+    "image_index": 4
+  },
+  {
+    "kind": "cta",
+    "headline": "Book a site visit today",
+    "caption": "+91 90000 00000 | sales@example.com",
+    "narration": "Book a site visit today.",
+    "image_index": 0
+  }
+]

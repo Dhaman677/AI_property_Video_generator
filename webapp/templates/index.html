@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property Video Studio</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <span class="mark" aria-hidden="true"></span>
+    <h1>Property Video Studio</h1>
+    <p>Listing details and photos in, share-ready MP4 out.</p>
+  </div>
+</header>
+
+<main class="wrap grid">
+  <form id="form" class="panel form" autocomplete="off" novalidate>
+    <div class="row-head">
+      <h2>Listing</h2>
+      <button type="button" id="sampleBtn" class="link">Load sample listing</button>
+    </div>
+
+    <label>Property name <span class="req">required</span>
+      <input name="name" id="name" maxlength="90" placeholder="Sunrise Heights - 2 BHK Apartment" required>
+    </label>
+    <div class="two">
+      <label>Location
+        <input name="location" maxlength="80" placeholder="Baner, Pune">
+      </label>
+      <label>Price
+        <input name="price" maxlength="40" placeholder="₹85 Lakhs">
+      </label>
+    </div>
+    <label>Property type
+      <input name="property_type" maxlength="50" placeholder="2 BHK apartment">
+    </label>
+    <label>Key features <span class="hint">one per line, the first 5 are used</span>
+      <textarea name="features" rows="5" placeholder="Modular kitchen with chimney&#10;Swimming pool and clubhouse"></textarea>
+    </label>
+    <div class="two">
+      <label>Call to action
+        <input name="cta_text" maxlength="70" placeholder="Book a site visit today">
+      </label>
+      <label>Contact line
+        <input name="contact" maxlength="90" placeholder="+91 90000 00000 | sales@example.com">
+      </label>
+    </div>
+    <label>Brand tag <span class="hint">optional, shown small on screen</span>
+      <input name="brand" maxlength="40" placeholder="Your agency name">
+    </label>
+
+    <div class="row-head">
+      <h2>Photos</h2>
+      <span class="hint" id="photoCount">0 of {{ max_images }}</span>
+    </div>
+    <div id="drop" class="drop" tabindex="0" role="button" aria-label="Add photos">
+      <input type="file" id="files" accept="image/jpeg,image/png,image/webp,image/bmp" multiple hidden>
+      <strong>Drop photos here or click to browse</strong>
+      <span>4-8 images. Scenes follow this order; a file name like <em>kitchen.jpg</em> is matched to a feature about the kitchen.</span>
+    </div>
+    <ol id="thumbs" class="thumbs"></ol>
+    <label class="check sample-check" id="sampleRow" hidden>
+      <input type="checkbox" id="useSample"> Using the 6 bundled sample photos
+    </label>
+
+    <div class="row-head"><h2>Video</h2></div>
+    <fieldset class="seg" aria-label="Aspect ratio">
+      <legend>Format</legend>
+      <label><input type="radio" name="aspect" value="16:9" checked><span>Landscape 16:9</span></label>
+      <label><input type="radio" name="aspect" value="9:16"><span>Vertical 9:16</span></label>
+      <label><input type="radio" name="aspect" value="1:1"><span>Square 1:1</span></label>
+    </fieldset>
+    <div class="opts">
+      <label class="check"><input type="checkbox" name="narration" value="1" {% if engine %}checked{% else %}disabled{% endif %}>
+        Voice-over {% if not engine %}<span class="hint">(no speech engine found on this machine)</span>{% endif %}</label>
+      <label class="check"><input type="checkbox" name="music" value="1" checked> Background music</label>
+      <label class="select">Quality
+        <select name="quality">
+          <option value="draft">Draft (fast, half size)</option>
+          <option value="standard" selected>Standard</option>
+          <option value="high">High</option>
+        </select>
+      </label>
+    </div>
+
+    <button type="submit" id="go" class="primary">Create video</button>
+    <ul id="formErrors" class="errors" role="alert" hidden></ul>
+  </form>
+
+  <section class="stage" aria-live="polite">
+    <div class="screen" id="screen">
+      <div id="idle" class="idle">
+        <p class="idle-title">Your video appears here</p>
+        <p>Title, one scene per feature, price, then an enquiry card. About 20-40 seconds, no editing needed.</p>
+      </div>
+      <div id="busy" class="busy" hidden>
+        <p id="busyMsg">Starting</p>
+        <div class="bar"><div id="barFill"></div></div>
+      </div>
+      <video id="player" controls playsinline hidden></video>
+    </div>
+
+    <div id="after" hidden>
+      <div class="downloads">
+        <a id="dlVideo" class="primary" download>Download MP4</a>
+        <a id="dlSrt" class="ghost" download>Captions (.srt)</a>
+        <a id="dlJson" class="ghost" download>Script (.json)</a>
+      </div>
+      <p id="meta" class="meta"></p>
+      <ul id="warnings" class="warnings"></ul>
+      <h3>Script used</h3>
+      <div class="table-wrap">
+        <table id="scriptTable">
+          <thead><tr><th>Scene</th><th>On screen</th><th>Voice-over</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <ul id="runErrors" class="errors" role="alert" hidden></ul>
+  </section>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

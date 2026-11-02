@@ -1,0 +1,24 @@
+{
+  "name": "Sunrise Heights - 2 BHK Apartment",
+  "location": "Baner, Pune",
+  "price": "₹85 Lakhs",
+  "property_type": "2 BHK apartment",
+  "features": [
+    "Bright living room with large windows",
+    "Modular kitchen with chimney",
+    "Master bedroom with attached bath",
+    "Private balcony with garden view",
+    "Swimming pool and clubhouse"
+  ],
+  "cta_text": "Book a site visit today",
+  "contact": "+91 90000 00000 | sales@example.com",
+  "brand": "Realty Assistant Demo",
+  "images": [
+    "images/exterior.jpg",
+    "images/living_room.jpg",
+    "images/kitchen.jpg",
+    "images/bedroom.jpg",
+    "images/balcony.jpg",
+    "images/swimming_pool.jpg"
+  ]
+}

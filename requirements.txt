@@ -1,0 +1,5 @@
+Pillow>=10.0
+numpy>=1.24
+imageio-ffmpeg>=0.4.9   # bundles an ffmpeg binary, so no separate ffmpeg install is required
+Flask>=3.0              # only needed for the web UI (app.py)
+pyttsx3>=2.90

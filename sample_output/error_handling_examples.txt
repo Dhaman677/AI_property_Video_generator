@@ -1,0 +1,34 @@
+### 1. No name and no images
+$ python -m pvg --price "₹50 Lakhs" --output /tmp/x.mp4
+error: provide --input property.json or at least --name and --images.
+Try:  python -m pvg --input sample_data/property.json
+(exit code 2)
+
+### 2. Name given, but every image is missing/corrupt
+$ python -m pvg --name "Test Villa" --images missing.jpg notes.txt
+
+[  5%] Loading images                                  
+error: Input problems:
+  - None of the supplied images could be used.
+  - Image not found, skipped: /tmp/missing.jpg
+  - Unsupported image type, skipped: notes.txt (use JPG, PNG, WEBP or BMP)
+(exit code 1)
+
+### 3. Broken JSON file
+$ python -m pvg --input broken.json
+
+error: broken.json is not valid JSON (line 2, column 1): Expecting property name enclosed in double quotes
+(exit code 1)
+
+### 4. Minimal listing (only a name + images folder) still works, with warnings
+$ python -m pvg --input sample_data/property_minimal.json --quality draft --no-narration --no-music
+warning: Missing location: that line is left out.
+warning: Missing price: the price scene is skipped.
+warning: Missing property type: that line is left out.
+warning: Missing contact details: the closing scene shows no contact line.
+warning: Missing call-to-action text: a default call to action is used.
+warning: No key features supplied: the video shows the title, a photo gallery, the price (if given) and the call to action.
+Video     : /tmp/min/v.mp4  (17.8s, 640x360)
+Captions  : /tmp/min/v.srt
+Script    : /tmp/min/v.script.json (writer: template)
+Narration : off | music: off | took 4.0s
